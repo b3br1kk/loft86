@@ -528,6 +528,87 @@ main>section:not(.hero)>.wrap{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.swipe-hint span{animation:none!important}#mobile-contact-widget *,#mobile-contact-widget{transition:none!important}}
 </style>
 
+
+
+<style>
+/* Latest mobile refinements: compact service cards and swipeable order steps. */
+@media (max-width:760px) {
+  #napravleniya .cats {
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-rows:190px!important;
+    gap:10px!important;
+    align-items:stretch!important;
+  }
+  #napravleniya .cat {
+    height:190px!important;
+    min-height:0!important;
+    padding:13px 11px!important;
+    gap:6px!important;
+    justify-content:flex-start!important;
+  }
+  #napravleniya .cat h3 {
+    font-size:clamp(.94rem,3.7vw,1.08rem)!important;
+    line-height:1.13!important;
+    margin:0!important;
+  }
+  #napravleniya .cat p {
+    font-size:.75rem!important;
+    line-height:1.38!important;
+    margin:0!important;
+  }
+  #napravleniya .cat .tag {
+    font-size:.66rem!important;
+    line-height:1.3!important;
+    margin-top:1px!important;
+    padding-top:0!important;
+  }
+  #napravleniya .cat:nth-child(3) {
+    grid-column:1 / -1!important;
+    width:calc((100% - 10px)/2)!important;
+    justify-self:center!important;
+  }
+
+  #zakaz .order-swipe-hint {
+    display:flex!important;
+    margin:0 0 12px!important;
+  }
+  #zakaz .order-layout {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:22px!important;
+  }
+  #zakaz .order-layout .steps {
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    width:100%!important;
+    min-width:0!important;
+    grid-template-columns:none!important;
+    gap:12px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:2px 2px 14px!important;
+    margin:0!important;
+    scroll-padding-inline:2px;
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-x pan-y;
+    scrollbar-width:thin;
+    scrollbar-color:#f29a38 #d5dce5;
+  }
+  #zakaz .order-layout .steps li {
+    flex:0 0 clamp(260px,82vw,326px)!important;
+    width:auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    height:auto!important;
+    padding:58px 18px 20px!important;
+    scroll-snap-align:start;
+    scroll-snap-stop:normal;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="site-loader" role="status" aria-label="Загрузка сайта">
@@ -618,7 +699,7 @@ main>section:not(.hero)>.wrap{position:relative;z-index:1}
   </div>
 </section>
 
-<section id="zakaz" class="order-section"><div class="wrap"><div class="sec-head"><h2>Как заказать</h2><p>От первого разговора до установки — обсудите задачу с салоном и подберите решение под своё пространство.</p></div><div class="order-layout"><ol class="steps">
+<section id="zakaz" class="order-section"><div class="wrap"><div class="sec-head"><h2>Как заказать</h2><p>От первого разговора до установки — обсудите задачу с салоном и подберите решение под своё пространство.</p></div><p class="swipe-hint order-swipe-hint" aria-hidden="true"><span>↔</span> Листай</p><div class="order-layout"><ol class="steps">
 <li><h3>Звонок или визит</h3><p>Приходите в салон в рабочие часы или позвоните: по предварительному звонку салон принимает и в другое время.</p></li>
 <li><h3>Образцы и пожелания</h3><p>Расскажите, каким видите интерьер. Вместе можно обсудить цвет, фактуру и качество обработки.</p></li>
 <li><h3>Проект</h3><p>Решение подбирается с учётом размеров, назначения и планировки помещения.</p></li>
